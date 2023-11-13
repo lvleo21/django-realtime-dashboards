@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<a href="{% url 'stats:statistics' %}">Voltar</a>
+<h1> Dashboard: {{ statistic.name }}</h1>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'stats/dashboard.js' %}" defer></script>
+{% endblock %}

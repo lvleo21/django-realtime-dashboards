@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1> Statistics </h1>
+
+    <form  method="POST" action="{% url 'stats:statistic_add' %}">
+        {% csrf_token %}
+
+        <input type="text" id="id_name" name="name" placeholder="">
+        <button>Adicionar</button>
+    </form>
+
+    {% if statistics %}
+        <ul>
+            {% for statistic in statistics %}
+                <li>
+                    <a href="{{ statistic.get_absolute_url }}">
+                        {{ statistic.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}
